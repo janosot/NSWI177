@@ -1,0 +1,14 @@
+Jako window manager pro vytvoření zkratek jsem si vybrala GNOME.
+Přejdeme v hlavním menu do Settings[Keyboard] k otevření seznamu klávesových zkratek.
+Ve spodní části klikeneme na "+", což slouží k vytvoření nové zkratky.
+Do okna "Add Custom Shortcut" jsou potřeba vložit následující infomace: Jméno zkratky (např. Web)
+                                                                         Příkaz, který spustí aplikaci (např. gnome-web)
+Klikneme na "Set Shortcut" k otevření okna k nastavení vlastní zkratky  
+Napíšeme klávesovou zkratku, kterou chceme použít (např. Ctrl+Alt+W)
+Klikneme na "Add"
+ → Tím je vytvoření nové klávesové zkratky hotové a připravené k použití. (Zkratka se objeví pod "Custom Shortcuts".)
+
+Např.pro:
+Terminal - Alt+Enter
+Web browser - Ctrl+Alt+W ("W" pro Web)
+File manager - Ctrl+Alt+M ("M" pro Manager)

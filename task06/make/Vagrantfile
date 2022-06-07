@@ -1,0 +1,39 @@
+#!/bin/bash
+$provision_script = <<-EOF_PROVISION_SCRIPT
+
+sudo dnf -y -q install git
+sudo dnf -y -q install pandoc
+sudo dnf -y -q install make
+sudo dnf -y -q install httpd
+sudo systemctl enable httpd
+sudo systemctl start httpd
+sudo firewall-cmd --permanent --add-port=80/tcp
+sudo firewall-cmd --reload
+
+git clone https://nswi177-task-07:stsW1y2pTRRSmhbreTwa@gitlab.mff.cuni.cz/teaching/nswi177/2020-summer/upstream/examples.git
+
+sudo mkdir -p /var/www/html
+
+cd examples/make
+sudo make
+
+sudo rm -rf /var/www/html/*
+
+sudo cp out/* /var/html/www
+
+EOF_PROVISION_SCRIPT
+
+Vagrant.configure(2) do |config|
+
+  config.vm.define "machine" do |machine|
+    machine.vm.box = "generic/fedora32"
+    machine.vm.provision "shell", inline: $provision_script
+  end
+
+  config.vm.network "forwarded_port", guest: 80, host: 8888
+
+  config.vm.provider "virtualbox" do |v|
+     v.memory = 512
+     v.cpus = 1
+  end
+end
